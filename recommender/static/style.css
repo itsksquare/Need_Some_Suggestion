@@ -1,0 +1,287 @@
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  color: #ffffff;
+  background-color: #131313;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  z-index: 997;
+  transition: all 0.5s;
+  height: 10vh;
+  background: rgba(19, 19, 19, 0.7);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.navbar {
+  padding: 0;
+}
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.navbar li {
+  position: relative;
+}
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: #ffb727;
+}
+
+/*--------------------------------------------------------------
+-----------------------------Hero Section-----------------------
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right top;
+  padding: 60px 0;
+  height: 100vh;
+}
+
+#hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #ffffff;
+  font-family: "Caveat", cursive;
+}
+
+#hero h1.name {
+  margin: 20vh 0 20px 0;
+  text-align: center;
+  justify-content: center;
+}
+
+#hero h2 {
+  text-align: center;
+  justify-content: center;
+  font-family: "Inconsolata", monospace;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+#hero .options {
+  text-align: center;
+  justify-content: space-between;
+}
+
+.options .card {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  text-align: center;
+  background-color: rgba(19, 19, 19, 0.7);
+}
+
+.options .card .title {
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.options .card p {
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.try-it-btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  color: #fff;
+  background: #ffb727;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.try-it-btn:hover {
+  background: #fdac09;
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+-----------------------------Movies Section-----------------------
+--------------------------------------------------------------*/
+.movie_input {
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.movie_input input {
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 14px;
+  transition: 0.3s;
+  color: #131313;
+  border: 0;
+  margin-top: 10px;
+}
+
+.movie_input .movie_input_text {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  height: 5vh;
+  font-size: 3vh;
+  width: 50%;
+}
+
+.movie_input .movie_input_submit {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 15px;
+  color: #131313;
+  background: #ffb727;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.recmovies {
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.recmovies h2.recmtitle {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ffb727;
+  text-align: center;
+}
+
+.recmovies li {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.recmovies .container {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 35%;
+  background-color: #3a3a3adc;
+  border-radius: 5%;
+}
+
+.topmovies {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.topmovies h2.toptitle {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ffb727;
+  text-align: center;
+}
+
+.topmovies .container li {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.topmovies .container {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 35%;
+  background-color: #3a3a3adc;
+  border-radius: 5%;
+}
+
+/*--------------------------------------------------------------
+-----------------------------Songs Section-----------------------
+--------------------------------------------------------------*/
+.song_input {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.song_input input {
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 14px;
+  transition: 0.3s;
+  color: #131313;
+  border: 0;
+  margin-top: 10px;
+}
+
+.song_input .song_input_text {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  height: 5vh;
+  font-size: 3vh;
+  width: 50%;
+}
+
+.song_input .song_input_submit {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 15px;
+  color: #131313;
+  background: #ffb727;
+  justify-content: center;
+  text-decoration: none;
+}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block content %}
+<section id="hero">
+  <div class="container">
+    <div class="row">
+      <div class="hero-name">
+        <h1 class="name">Movies and Song Recommender</h1>
+        <h2>
+          Wanna pass some time but don't know what to watch!<br />Choose one of
+          the ways listed below to get recommendations
+        </h2>
+      </div>
+    </div>
+    <div class="options">
+      <div class="row">
+        <div class="card">
+          <p class="title">Emotion</p>
+          <p>
+            Turn on your camera and we give recommendations based on your mood
+          </p>
+          <p><a href="./emotion" class="try-it-btn">Try It</a></p>
+        </div>
+        <div class="card">
+          <p class="title">Movie</p>
+          <p>
+            Give us a movie and we will give you recommendations based on that
+          </p>
+          <p><a href="./movies" class="try-it-btn">Try It</a></p>
+        </div>
+        <div class="card">
+          <p class="title">Song</p>
+          <p>
+            Give us a song and we will give you recommendations based on that
+          </p>
+          <p><a href="./songs" class="try-it-btn">Try It</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

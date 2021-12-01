@@ -1,0 +1,17 @@
+{% extends "movies.html" %} {% block recmovie %}
+<div class="recmovies">
+  <h2 class="recmtitle">Our Recommendations</h2>
+  <div class="recmovie">
+    <div class="container">
+      {% for element in recmovies[0:8] %}
+      <li>{{ element }}</li>
+      {% endfor %}
+    </div>
+    <div class="container">
+      {% for element in recmovies[8:16] %}
+      <li>{{ element }}</li>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
