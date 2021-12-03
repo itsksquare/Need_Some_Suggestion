@@ -7,7 +7,7 @@ import time
 
 model = 'assets/emotion-ferplus-8.onnx'
 net = cv2.dnn.readNetFromONNX(model)
-cap = cv2.VideoCapture(0)
+
 # Read image
 def init_emotion(model="assets/emotion-ferplus-8.onnx"):
     
@@ -82,27 +82,31 @@ def emotion(image, returndata=False, confidence=0.3):
 # cap = cv2.VideoCapture(0)
 
 def gen_frames():
+    cap = cv2.VideoCapture(0)
     init_emotion()
     fps=0
     init_emotion()
-    while(True):    
+    while(cap.isOpened()):    
         start_time = time.time()
-        success,frame=cap.read() 
+        success,img=cap.read() 
         
-        if not success:
-            break
-                
-        image = cv2.flip(frame,1)
-        
-        image = emotion(image, returndata=True, confidence = 0.8)
-        
-        cv2.putText(image, 'FPS: {:.2f}'.format(fps), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,0.8, (255, 20, 55), 1)
-        cv2.imshow("Emotion Recognition",image)
-        
-        k = cv2.waitKey(1)
-        fps= (1.0 / (time.time() - start_time))
-        
-        if k == ord('q'):
-            break
+        if success==True:    
+            image = cv2.flip(img,1)
+            img=cv2.resize(img,(0,0),fx=0.5,fy=0.5)
+            
+            image = emotion(image, returndata=True, confidence = 0.8)
+            
+            cv2.putText(image, 'FPS: {:.2f}'.format(fps), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,0.8, (255, 20, 55), 1)
+            cv2.imshow("Emotion Recognition",image)
+            frame = cv2.imencode('.jpg', image)[1].tobytes()
+            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+            k = cv2.waitKey(1)
+            fps= (1.0 / (time.time() - start_time))
+            
+            if k == ord('q'):
+                break
+        else:
+            break    
     cap.release()  
 cv2.destroyAllWindows() 
