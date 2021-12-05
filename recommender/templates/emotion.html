@@ -1,11 +1,6 @@
 {% extends "layout.html" %} {% block content %}
-<h1>Emotion Page</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h3 class="mt-5">Live Streaming</h3>
-      <img src="{{url_for('video_feed')}}" width="100%" />
-    </div>
-  </div>
+<p>{{ uemotion }}</p>
+<div class="videodiv">
+  <img src="{{url_for('video_feed')}}" width="40%" />
 </div>
 {% endblock %}
