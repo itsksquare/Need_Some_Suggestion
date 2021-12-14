@@ -31,5 +31,9 @@ def video_feed():
 def team():
     return render_template("team.html", title="Team", team="active")
 
+@app.route("/songs")
+def emotion():
+    return render_template("songs.html")    
+
 if __name__ == "__main__":
     app.run(debug=True)
