@@ -1,5 +1,4 @@
 {% extends "layout.html" %} {% block content %}
-<h1>Songs Page</h1>
 <div class="song_input">
   <form action=" " method="post">
     <div class="song_input_fields">
@@ -14,5 +13,21 @@
       <input class="song_input_submit" type="submit" value="Search" />
     </div>
   </form>
+</div>
+{% block recsong %} {% endblock %}
+<div class="topsongs">
+  <h2 class="toptitle">Top Picks</h2>
+  <div class="topsong">
+    <div class="container">
+      {% for element in topsongs[0:8] %}
+      <li>{{ element }}</li>
+      {% endfor %}
+    </div>
+    <div class="container">
+      {% for element in topsongs[8:16] %}
+      <li>{{ element }}</li>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% endblock %}

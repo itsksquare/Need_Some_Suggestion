@@ -7,9 +7,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 songs=pd.read_csv('recommender/songs/songdata.csv')
 
-songs=songs.sample(n=5000).drop('link',axis=1).reset_index(drop=True)
+#songs=songs.sample(n=5000).drop('link',axis=1).reset_index(drop=True)
 
-print(songs.head(21))
+topsongs=songs.head(17)
+def topsongsfn(topsongs=topsongs):
+    return topsongs['song']
 
 songs['text']=songs['text'].str.replace(r'\n','')
 

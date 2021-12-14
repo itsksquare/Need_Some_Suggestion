@@ -252,7 +252,7 @@ body {
 -----------------------------Songs Section-----------------------
 --------------------------------------------------------------*/
 .song_input {
-  margin-top: 10vh;
+  margin-top: 15vh;
   text-align: center;
 }
 
@@ -284,6 +284,73 @@ body {
   background: #ffb727;
   justify-content: center;
   text-decoration: none;
+}
+
+/* .recmovies {
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.recmovies h2.recmtitle {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ffb727;
+  text-align: center;
+}
+
+.recmovies li {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.recmovies .container {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 35%;
+  background-color: #3a3a3adc;
+  border-radius: 5%;
+} */
+
+.topsongs {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.topsongs h2.toptitle {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ffb727;
+  text-align: center;
+}
+
+.topsongs .container li {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.topsongs .container {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 35%;
+  background-color: #3a3a3adc;
+  border-radius: 5%;
 }
 
 /*--------------------------------------------------------------

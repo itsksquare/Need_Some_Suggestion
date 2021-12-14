@@ -1,7 +1,6 @@
 import flask
 from flask import render_template, url_for, request, Response
 from recommender import app
-from recommender.movie import m_rec
 import recommender.emotion
 
 @app.route("/")
@@ -10,6 +9,7 @@ def home():
 
 @app.route("/movies", methods=['POST', 'GET'])
 def movies():
+    from recommender.movie import m_rec
     if flask.request.method == 'POST':
         userinput = request.form['movie_name']
         return render_template("movies1.html", title="Movies", movies="active", recmovies=m_rec.get_recommendations(userinput), topmovies=m_rec.topmoviesfn())
@@ -17,7 +17,11 @@ def movies():
 
 @app.route("/songs")
 def songs():
-    return render_template("songs.html", title="Songs", songs="active")
+    from recommender.songs import s_rec
+    #if flask.request.method == 'POST':
+        #userinput = request.form['movie_name']
+        #return render_template("movies1.html", title="Movies", movies="active", recmovies=m_rec.get_recommendations(userinput), topmovies=m_rec.topmoviesfn())
+    return render_template("songs.html", title="Songs", songs="active", topsongs=s_rec.topsongsfn())
 
 @app.route("/emotion",methods=['GET','POST'])
 def emotion():
@@ -30,10 +34,6 @@ def video_feed():
 @app.route("/team")
 def team():
     return render_template("team.html", title="Team", team="active")
-
-@app.route("/songs")
-def emotion():
-    return render_template("songs.html")    
 
 if __name__ == "__main__":
     app.run(debug=True)
