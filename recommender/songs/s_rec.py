@@ -9,6 +9,8 @@ songs=pd.read_csv('recommender/songs/songdata.csv')
 
 songs=songs.sample(n=5000).drop('link',axis=1).reset_index(drop=True)
 
+print(songs.head(21))
+
 songs['text']=songs['text'].str.replace(r'\n','')
 
 tfidf=TfidfVectorizer(analyzer='word',stop_words='english')
@@ -41,18 +43,12 @@ class ContentBasedRecommender:
         self._print_messages(song=song,recom_song=recom_song)  
 
 recommendations=ContentBasedRecommender(similarities)
+enter_song_choice=str(input("Enter song name::"))
 
 recommendation={
-    "song":songs['song'].iloc[10],
+    "song":enter_song_choice,
     "number_songs":4
 }
+print(f"song name: {recommendation['song']}")
 
 recommendations.recommend(recommendation)
-
-recommendation2={
-    "song":songs['song'].iloc[120],
-    "number_songs":4
-}
-
-recommendations.recommend(recommendation2)
-
