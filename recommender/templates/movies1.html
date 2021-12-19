@@ -4,12 +4,12 @@
   <div class="recmovie">
     <div class="container">
       {% for element in recmovies[0:8] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
     <div class="container">
       {% for element in recmovies[8:16] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
   </div>

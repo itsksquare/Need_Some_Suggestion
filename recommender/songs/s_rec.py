@@ -1,11 +1,9 @@
 import pandas as pd
-import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-from tqdm import tqdm
 from sklearn.cluster import KMeans 
-df = pd.read_csv('recommender/songs/data/data.csv')
+df = pd.read_csv('recommender/songs/data.csv')
 
 def topsongsfn():
     popularity = df.sort_values("popularity", ascending=False)
@@ -36,22 +34,8 @@ class Song_Recommender():
     
     #function which returns recommendations, we can also choose the amount of songs to be recommended
     def get_recommendations(self, song_name):
-        distances = []
-        #choosing the given song_name and dropping it from the data
-        song = self.data_[(self.data_.name.str.lower() == song_name.lower())].head(1).values[0]
         rem_data = self.data_[self.data_.name.str.lower() != song_name.lower()]
-        for r_song in tqdm(rem_data.values):
-            dist = 0
-            for col in np.arange(len(rem_data.columns)):
-                #indeces of non-numerical columns(id,Release date,name,artists)
-                if not col in [3,8,14,16]:
-                    #calculating the manhettan distances for each numerical feature
-                    dist = dist + np.absolute(float(song[col]) - float(r_song[col]))
-            distances.append(dist)
-        rem_data['distance'] = distances
-        rem_data = rem_data.sort_values('distance')
-        return rem_data['name'].head(16).to_numpy()
-
+        return rem_data['name'].head(16).tolist()
 
 recommender = Song_Recommender(df)
 

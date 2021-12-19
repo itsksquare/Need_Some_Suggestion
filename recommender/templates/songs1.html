@@ -1,15 +1,15 @@
-{% extends "songs.html" %} {% block recmovie %}
+{% extends "songs.html" %} {% block recsong %}
 <div class="recsongs">
   <h2 class="recstitle">Our Recommendations</h2>
   <div class="recsong">
     <div class="container">
       {% for element in recsongs[0:8] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
     <div class="container">
       {% for element in recsongs[8:16] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
   </div>

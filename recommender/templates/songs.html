@@ -20,12 +20,12 @@
   <div class="topsong">
     <div class="container">
       {% for element in topsongs[0:8] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
     <div class="container">
       {% for element in topsongs[8:16] %}
-      <li>{{ element }}</li>
+      <li>{{ element[:45] }}</li>
       {% endfor %}
     </div>
   </div>
