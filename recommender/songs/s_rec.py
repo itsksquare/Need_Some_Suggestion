@@ -11,10 +11,6 @@ def topsongsfn():
     popularity = df.sort_values("popularity", ascending=False)
     return popularity["name"].to_numpy()
 
-df["artists"]=df["artists"].str.replace("[", "")
-df["artists"]=df["artists"].str.replace("]", "")
-df["artists"]=df["artists"].str.replace("'", "")
-
 def normalize_column(col):
     """
     col - column in the dataframe which needs to be normalized
@@ -35,10 +31,6 @@ df['pred'] = pred
 normalize_column('pred')
 
 class Song_Recommender():
-    """
-    Neighbourhood Based Collborative Filterng REcoomendation System using similarity Metrics
-    Manhattan Distance is calculated for all songs and Recommend Songs that are similar to it based on any given song
-    """
     def __init__(self, data):
         self.data_ = data
     
