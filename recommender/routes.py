@@ -2,6 +2,8 @@ import flask
 from flask import render_template, url_for, request, Response
 from recommender import app
 import recommender.emotion
+from recommender.movie import m_rec
+from recommender.songs import s_rec
 
 @app.route("/")
 def home():
@@ -9,7 +11,6 @@ def home():
 
 @app.route("/movies", methods=['POST', 'GET'])
 def movies():
-    from recommender.movie import m_rec
     if flask.request.method == 'POST':
         userinput = request.form['movie_name']
         return render_template("movies1.html", title="Movies", movies="active", recmovies=m_rec.get_recommendations(userinput), topmovies=m_rec.topmoviesfn())
@@ -17,7 +18,6 @@ def movies():
 
 @app.route("/songs")
 def songs():
-    from recommender.songs import s_rec
     #if flask.request.method == 'POST':
         #userinput = request.form['movie_name']
         #return render_template("movies1.html", title="Movies", movies="active", recmovies=m_rec.get_recommendations(userinput), topmovies=m_rec.topmoviesfn())
