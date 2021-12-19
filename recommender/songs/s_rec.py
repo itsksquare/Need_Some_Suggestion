@@ -1,56 +1,67 @@
-from re import T
-import numpy as np
 import pandas as pd
-from typing import List,Dict
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+import warnings
+warnings.filterwarnings('ignore')
 
-songs=pd.read_csv('recommender/songs/songdata.csv')
+from tqdm import tqdm
+from sklearn.cluster import KMeans 
+df = pd.read_csv('recommender/songs/data/data.csv')
 
-songs=songs.sample(n=5000).drop('link',axis=1).reset_index(drop=True)
+def topsongsfn():
+    popularity = df.sort_values("popularity", ascending=False)
+    return popularity["name"].to_numpy()
 
-topsongs=songs.head(17)
-def topsongsfn(topsongs=topsongs):
-    return topsongs['song']
+df["artists"]=df["artists"].str.replace("[", "")
+df["artists"]=df["artists"].str.replace("]", "")
+df["artists"]=df["artists"].str.replace("'", "")
 
-songs['text']=songs['text'].str.replace(r'\n','')
+def normalize_column(col):
+    """
+    col - column in the dataframe which needs to be normalized
+    """
+    max_d = df[col].max()
+    min_d = df[col].min()
+    df[col] = (df[col] - min_d)/(max_d - min_d)
+    
+num_types = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+num = df.select_dtypes(include=num_types)
+        
+for col in num.columns:
+    normalize_column(col)
+    
+km = KMeans(n_clusters=25)
+pred = km.fit_predict(num)
+df['pred'] = pred
+normalize_column('pred')
 
-tfidf=TfidfVectorizer(analyzer='word',stop_words='english')
+class Song_Recommender():
+    """
+    Neighbourhood Based Collborative Filterng REcoomendation System using similarity Metrics
+    Manhattan Distance is calculated for all songs and Recommend Songs that are similar to it based on any given song
+    """
+    def __init__(self, data):
+        self.data_ = data
+    
+    #function which returns recommendations, we can also choose the amount of songs to be recommended
+    def get_recommendations(self, song_name):
+        distances = []
+        #choosing the given song_name and dropping it from the data
+        song = self.data_[(self.data_.name.str.lower() == song_name.lower())].head(1).values[0]
+        rem_data = self.data_[self.data_.name.str.lower() != song_name.lower()]
+        for r_song in tqdm(rem_data.values):
+            dist = 0
+            for col in np.arange(len(rem_data.columns)):
+                #indeces of non-numerical columns(id,Release date,name,artists)
+                if not col in [3,8,14,16]:
+                    #calculating the manhettan distances for each numerical feature
+                    dist = dist + np.absolute(float(song[col]) - float(r_song[col]))
+            distances.append(dist)
+        rem_data['distance'] = distances
+        rem_data = rem_data.sort_values('distance')
+        return rem_data['name'].head(16).to_numpy()
 
-lyrics_matrix=tfidf.fit_transform(songs['text'])
 
-cosine_similarities=cosine_similarity(lyrics_matrix)
+recommender = Song_Recommender(df)
 
-similarities={}
-
-for i in range(len(cosine_similarities)):
-    similar_indices=cosine_similarities[i].argsort()[:-50:-1]
-    similarities[songs['song'].iloc[i]]=[(cosine_similarities[i][x],songs['song'][x],songs['artist'][x]) for x in similar_indices][1:]
-
-class ContentBasedRecommender:
-    def __init__(self,matrix):
-        self.matrix_similar=matrix
-    def _print_messages(self,song,recom_song):
-        rec_items=len(recom_song)
-        print(f'The {rec_items} recommeded songs for {song} are:')
-        for i in range(rec_items):
-            print(f"Number {i+1}:")
-            print(f"{recom_song[i][1]} by {recom_song[i][2]} with {round (recom_song[i][0],3)} similarity score")
-            print("-----------------")
-
-    def recommend(self,recommendation):
-        song=recommendation['song']
-        number_songs=recommendation['number_songs']
-        recom_song=self.matrix_similar[song][:number_songs]
-        self._print_messages(song=song,recom_song=recom_song)  
-
-recommendations=ContentBasedRecommender(similarities)
-enter_song_choice=str(input("Enter song name::"))
-
-recommendation={
-    "song":enter_song_choice,
-    "number_songs":4
-}
-print(f"song name: {recommendation['song']}")
-
-recommendations.recommend(recommendation)
+def s_recommend(s_name, recommender = recommender):
+    return recommender.get_recommendations(s_name)

@@ -286,14 +286,14 @@ body {
   text-decoration: none;
 }
 
-/* .recmovies {
+.recsongs {
   margin-top: 5vh;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.recmovies h2.recmtitle {
+.recsongs h2.recstitle {
   font-family: "Raleway", sans-serif;
   font-size: 40px;
   letter-spacing: 1px;
@@ -302,7 +302,7 @@ body {
   text-align: center;
 }
 
-.recmovies li {
+.recsongs li {
   font-family: "Raleway", sans-serif;
   font-size: 20px;
   display: flex;
@@ -311,13 +311,13 @@ body {
   color: #ffffff;
 }
 
-.recmovies .container {
+.recsongs .container {
   display: inline-block;
   flex-wrap: wrap;
   width: 35%;
   background-color: #3a3a3adc;
   border-radius: 5%;
-} */
+}
 
 .topsongs {
   margin-top: 10vh;
