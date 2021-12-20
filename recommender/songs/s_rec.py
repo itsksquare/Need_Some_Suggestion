@@ -10,9 +10,6 @@ def topsongsfn():
     return popularity["name"].to_numpy()
 
 def normalize_column(col):
-    """
-    col - column in the dataframe which needs to be normalized
-    """
     max_d = df[col].max()
     min_d = df[col].min()
     df[col] = (df[col] - min_d)/(max_d - min_d)
@@ -32,7 +29,6 @@ class Song_Recommender():
     def __init__(self, data):
         self.data_ = data
     
-    #function which returns recommendations, we can also choose the amount of songs to be recommended
     def get_recommendations(self, song_name):
         rem_data = self.data_[self.data_.name.str.lower() != song_name.lower()]
         return rem_data['name'].head(16).tolist()

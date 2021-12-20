@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.metrics.pairwise import cosine_similarity
 from ast import literal_eval
@@ -16,14 +15,11 @@ def topmoviesfn():
     popularity = movies_df.sort_values("popularity", ascending=False)
     return popularity["title"].to_numpy()
 
-# Content based Filtering
 tfidf = TfidfVectorizer(stop_words="english")
 movies_df["overview"] = movies_df["overview"].fillna("")
 
 tfidf_matrix = tfidf.fit_transform(movies_df["overview"])
-#print(tfidf_matrix.shape)
 
-# Compute similarity
 cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 indices = pd.Series(movies_df.index, index=movies_df["title"]).drop_duplicates()
@@ -33,8 +29,6 @@ def get_recommendations(title, cosine_sim=cosine_sim):
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:17]
-    # (a, b) where a is id of movie, b is sim_score
-
     movies_indices = [ind[0] for ind in sim_scores]
     movies = movies_df["title"].iloc[movies_indices]
     return movies
