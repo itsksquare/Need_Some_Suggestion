@@ -1,3 +1,87 @@
 {% extends "layout.html" %} {% block content %}
-<h1>Team Page</h1>
+<div class="teamspage">
+    <div class="container">
+        <div class="card">
+            <div class="bg-image">
+                <img src="{{ url_for('static', filename='card-bg.jpg') }}" alt="">
+            </div>
+            <div class="pic">
+                <img src="{{ url_for('static', filename='pic.jpg') }}" alt="">
+            </div>
+            <div class="info">
+                <h3>Kartikey Khanna</h3>
+                <span><i class="fas fa-code"></i>Web</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nulla.</p>
+                <div class="icons">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-github"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="bg-image">
+                <img src="{{ url_for('static', filename='card-bg.jpg') }}" alt="">
+            </div>
+            <div class="pic">
+                <img src="{{ url_for('static', filename='pic.jpg') }}" alt="">
+            </div>
+            <div class="info">
+                <h3>Hemanth Sai</h3>
+                <span><i class="fas fa-code"></i>Web</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nulla.</p>
+                <div class="icons">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-github"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="bg-image">
+                <img src="{{ url_for('static', filename='card-bg.jpg') }}" alt="">
+            </div>
+            <div class="pic">
+                <img src="{{ url_for('static', filename='pic.jpg') }}" alt="">
+            </div>
+            <div class="info">
+                <h3>Ashish Vats</h3>
+                <span><i class="fas fa-code"></i>Web</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nulla.</p>
+                <div class="icons">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-github"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="bg-image">
+                <img src="{{ url_for('static', filename='card-bg.jpg') }}" alt="">
+            </div>
+            <div class="pic">
+                <img src="{{ url_for('static', filename='pic1.png') }}" alt="">
+            </div>
+            <div class="info">
+                <h3>Palak Garg</h3>
+                <span><i class="fas fa-code"></i>Web</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, nulla.</p>
+                <div class="icons">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-github"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

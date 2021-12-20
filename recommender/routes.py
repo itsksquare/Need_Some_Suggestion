@@ -13,15 +13,15 @@ def home():
 def movies():
     if flask.request.method == 'POST':
         userminput = request.form['movie_name']
-        return render_template("movies1.html", title="Movies", movies="active", recmovies=m_rec.get_recommendations(userminput), topmovies=m_rec.topmoviesfn())
-    return render_template("movies.html", title="Movies", movies="active", topmovies=m_rec.topmoviesfn())
+        return render_template("movies1.html", title="Movies Recommender", movies="active", recmovies=m_rec.get_recommendations(userminput), topmovies=m_rec.topmoviesfn())
+    return render_template("movies.html", title="Movies Recommender", movies="active", topmovies=m_rec.topmoviesfn())
 
 @app.route("/songs", methods=['POST', 'GET'])
 def songs():
     if flask.request.method == 'POST':
         usersinput = request.form['song_name']
-        return render_template("songs1.html", title="Songs", songs="active", recsongs=s_rec.s_recommend(usersinput), topsongs=s_rec.topsongsfn())
-    return render_template("songs.html", title="Songs", songs="active", topsongs=s_rec.topsongsfn())
+        return render_template("songs1.html", title="Songs Recommender", songs="active", recsongs=s_rec.s_recommend(usersinput), topsongs=s_rec.topsongsfn())
+    return render_template("songs.html", title="Songs Recommender", songs="active", topsongs=s_rec.topsongsfn())
 
 @app.route("/emotion",methods=['GET','POST'])
 def emotion():
