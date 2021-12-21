@@ -1,3 +1,4 @@
+from matplotlib.pyplot import axis
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -10,6 +11,13 @@ movies_df = pd.read_csv("recommender/movie/movies.csv")
 
 credits_df.columns = ['id','tittle','cast','crew']
 movies_df = movies_df.merge(credits_df, on="id")
+
+def emotionmovie(movies_df=movies_df):
+    movies_df = movies_df["title"]
+    movies_df = movies_df.sample(n=16)
+    return movies_df.to_numpy()
+
+emotionmovie()
 
 def topmoviesfn():
     popularity = movies_df.sort_values("popularity", ascending=False)

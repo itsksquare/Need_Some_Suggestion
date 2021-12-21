@@ -1,6 +1,36 @@
 {% extends "layout.html" %} {% block content %}
-<p>{{ uemotion }}</p>
-<div class="videodiv">
-  <img src="{{url_for('video_feed')}}" width="40%" />
+<div class="emotionspage">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="videodiv">
+          <img src="{{url_for('video_feed')}}" width="100%" />
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="recstitle">
+          <h1>Movies</h1>
+        </div>
+        <div class="recs">
+          {% for element in recm %}
+          <li>{{ element[:30] }}</li>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="recstitle">
+          <h1>Songs</h1>
+        </div>
+        <div class="recs">
+          {% for element in recs %}
+          <li>{{ element[:30] }}</li>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock %}
