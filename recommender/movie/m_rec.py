@@ -17,8 +17,6 @@ def emotionmovie(movies_df=movies_df):
     movies_df = movies_df.sample(n=16)
     return movies_df.to_numpy()
 
-emotionmovie()
-
 def topmoviesfn():
     popularity = movies_df.sort_values("popularity", ascending=False)
     return popularity["title"].to_numpy()
