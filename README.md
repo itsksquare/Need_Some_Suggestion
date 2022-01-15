@@ -1,6 +1,6 @@
 <h1 align='center'>Movies and Songs Recommendation System</h1>
 
-<img align='center' src='./recommender/static/ss.png' />
+<img align='center' src='./assets/ss.png' />
 
 <br />
 <br />

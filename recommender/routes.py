@@ -25,7 +25,7 @@ def songs():
 
 @app.route("/emotion",methods=['GET','POST'])
 def emotion():
-    return render_template("emotion.html", title="Emotion", recs=m_rec.emotionmovie(), recm=s_rec.emotionsong())
+    return render_template("emotion.html", title="Emotion")
 
 @app.route('/video_feed')
 def video_feed():

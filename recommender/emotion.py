@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import bleedfacedetector as fd
 import time
 
-model = 'assets/emotion-ferplus-8.onnx'
+model = 'recommender/assets/emotion-ferplus-8.onnx'
 net = cv2.dnn.readNetFromONNX(model)
 
 def init_emotion(model="assets/emotion-ferplus-8.onnx"):

@@ -12,11 +12,6 @@ movies_df = pd.read_csv("./recommender/movie/movies.csv")
 credits_df.columns = ['id','tittle','cast','crew']
 movies_df = movies_df.merge(credits_df, on="id")
 
-def emotionmovie(movies_df=movies_df):
-    movies_df = movies_df["title"]
-    movies_df = movies_df.sample(n=16)
-    return movies_df.to_numpy()
-
 def topmoviesfn():
     popularity = movies_df.sort_values("popularity", ascending=False)
     return popularity["title"].to_numpy()

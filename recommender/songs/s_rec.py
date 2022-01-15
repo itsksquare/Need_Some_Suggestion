@@ -5,11 +5,6 @@ warnings.filterwarnings('ignore')
 from sklearn.cluster import KMeans 
 df = pd.read_csv("./recommender/songs/data.csv")
 
-def emotionsong(df=df):
-    df = df["name"]
-    df = df.sample(n=16)
-    return df.to_numpy()
-
 def topsongsfn():
     popularity = df.sort_values("popularity", ascending=False)
     return popularity["name"].to_numpy()
