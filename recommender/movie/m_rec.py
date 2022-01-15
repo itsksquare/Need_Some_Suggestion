@@ -6,8 +6,8 @@ from sklearn.metrics.pairwise import linear_kernel
 from sklearn.metrics.pairwise import cosine_similarity
 from ast import literal_eval
 
-credits_df = pd.read_csv("https://raw.githubusercontent.com/itsksquare/datasets/main/movie/credits.csv?token=ASCPTSVEGT4MWSJJ2B7ESSDBZM6ZI")
-movies_df = pd.read_csv("https://raw.githubusercontent.com/itsksquare/datasets/main/movie/movies.csv?token=ASCPTSUCUTXIYJPTDXQQWFDBZM63U")
+credits_df = pd.read_csv("./recommender/movie/credits.csv")
+movies_df = pd.read_csv("./recommender/movie/movies.csv")
 
 credits_df.columns = ['id','tittle','cast','crew']
 movies_df = movies_df.merge(credits_df, on="id")

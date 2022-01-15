@@ -3,7 +3,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 from sklearn.cluster import KMeans 
-df = pd.read_csv('https://raw.githubusercontent.com/itsksquare/datasets/main/songs/data.csv?token=ASCPTSQJZCCCNS3WGDB4CUTBZM65M')
+df = pd.read_csv("./recommender/songs/data.csv")
 
 def emotionsong(df=df):
     df = df["name"]
