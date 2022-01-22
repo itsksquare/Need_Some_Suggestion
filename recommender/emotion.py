@@ -7,7 +7,7 @@ import time
 model = 'recommender/assets/emotion-ferplus-8.onnx'
 net = cv2.dnn.readNetFromONNX(model)
 
-def init_emotion(model="assets/emotion-ferplus-8.onnx"):
+def init_emotion(model="recommender/assets/emotion-ferplus-8.onnx"):
     global net,emotions
     emotions = ['Neutral', 'Happy', 'Surprise', 'Sad', 'Anger', 'Disgust', 'Fear', 'Contempt']
     net = cv2.dnn.readNetFromONNX(model)
