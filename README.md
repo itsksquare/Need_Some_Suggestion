@@ -9,11 +9,11 @@
 
 - Clone the repository:
   ```
-  git clone https://github.com/itsksquare/Project-ex1.git
+  git clone https://github.com/itsksquare/Need_Some_Suggestion.git
   ```
 - cd into the directory:
   ```
-  cd Project-ex1
+  cd Need_Some_Suggestion
   ```
 - Install the required packages:
   ```
